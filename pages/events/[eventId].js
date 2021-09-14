@@ -7,15 +7,21 @@ import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import ErrorAlert from '../../components/ui/error-alert';
 import Comments from '../../components/input/comments';
+import styled from 'styled-components';
+
+const CenteredDiv = styled.div`
+  text-align: center;
+  margin: auto;
+`;
 
 function EventDetailPage(props) {
   const event = props.selectedEvent;
   
   if (!event) {
     return (
-      <div className="center">
+      <CenteredDiv>
         <p>Loading...</p>
-      </div>
+      </CenteredDiv>
     );
   }
 

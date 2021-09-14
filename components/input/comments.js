@@ -2,10 +2,10 @@ import { useState, useEffect, useContext } from "react";
 
 import CommentList from "./comment-list";
 import NewComment from "./new-comment";
-import classes from "./comments.module.css";
 import { NotificationContext } from "../../store/notification-context";
+import styled from "styled-components";
 
-function Comments(props) {
+function BasicComments(props) {
   const { eventId } = props;
 
   const [showComments, setShowComments] = useState(false);
@@ -73,14 +73,39 @@ function Comments(props) {
   }
 
   return (
-    <section className={classes.comments}>
+    <section className={props.className}>
       <button onClick={toggleCommentsHandler}>
         {showComments ? "Hide" : "Show"} Comments
       </button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
-      {showComments && loading ? 'Loading ...': <CommentList items={comments} />}
+      {showComments && loading ? (
+        "Loading ..."
+      ) : (
+        <CommentList items={comments} />
+      )}
     </section>
   );
 }
+
+const Comments = styled(BasicComments)`
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 40rem;
+  text-align: center;
+
+  button {
+    font: inherit;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #03be9f;
+    border: 1px solid #03be9f;
+    cursor: pointer;
+  }
+  button:hover,
+  button:active {
+    background-color: #dcfff9;
+  }
+`;
 
 export default Comments;
