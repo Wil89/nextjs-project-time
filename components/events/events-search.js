@@ -28,9 +28,6 @@ const StyledForm = styled.form`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    button {
-      width: 20%;
-    }
   }
 `;
 
