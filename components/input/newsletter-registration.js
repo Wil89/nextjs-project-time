@@ -1,7 +1,7 @@
-import classes from "./newsletter-registration.module.css";
 import { useRef } from "react";
+import styled from "styled-components";
 
-function NewsletterRegistration({ handlerRegistration }) {
+function BasicNewsletterRegistration({ handlerRegistration, className }) {
   const emailRef = useRef();
   function registrationHandler(event) {
     event.preventDefault();
@@ -18,22 +18,66 @@ function NewsletterRegistration({ handlerRegistration }) {
   }
 
   return (
-    <section className={classes.newsletter}>
-      <h2>Sign up to stay updated!</h2>
-      <form onSubmit={registrationHandler}>
-        <div className={classes.control}>
-          <input
-            type="email"
-            id="email"
-            placeholder="Your email"
-            aria-label="Your email"
-            ref={emailRef}
-          />
-          <button>Register</button>
-        </div>
-      </form>
-    </section>
+    <div className={className}>
+      <Section>
+        <h2>Sign up to stay updated!</h2>
+        <form onSubmit={registrationHandler}>
+          <div>
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email"
+              aria-label="Your email"
+              ref={emailRef}
+            />
+            <button>Register</button>
+          </div>
+        </form>
+      </Section>
+    </div>
   );
 }
+
+const Section = styled.section`
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 20rem;
+`;
+
+const NewsletterRegistration = styled(BasicNewsletterRegistration)`
+  h2: {
+    text-align: center;
+  }
+
+  input {
+    font: inherit;
+    padding: 0.25rem;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #ccc;
+    flex: 1;
+  }
+
+  button {
+    background-color: #03be9f;
+    border: 1px solid #03be9f;
+    border-radius: 6px;
+    color: #dafff7;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  button:hover,
+  button:active {
+    background-color: #02afa1;
+    border-color: #02afa1;
+  }
+
+  div {
+    display: flex;
+  }
+`;
 
 export default NewsletterRegistration;

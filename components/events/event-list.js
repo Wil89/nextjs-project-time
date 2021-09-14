@@ -1,11 +1,17 @@
 import EventItem from './event-item';
-import classes from './event-list.module.css';
+import styled from 'styled-components';
+
+const List = styled.ul`
+  width: 90%;
+  max-width: 40rem;
+  margin: 5rem auto;
+`;
 
 function EventList(props) {
   const { items } = props;
 
   return (
-    <ul className={classes.list}>
+    <List>
       {items.map((event) => (
         <EventItem
           key={event.id}
@@ -16,7 +22,7 @@ function EventList(props) {
           image={event.image}
         />
       ))}
-    </ul>
+    </List>
   );
 }
 
