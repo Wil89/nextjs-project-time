@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`newsletter registration tests should match snapshot 1`] = `
+<div>
+  <div
+    class="newsletter-registration__NewsletterRegistration-sc-wqc6tn-1 eKtYc"
+  >
+    <section
+      class="newsletter-registration__Section-sc-wqc6tn-0 eIyvMo"
+    >
+      <h2>
+        Sign up to stay updated!
+      </h2>
+      <form>
+        <div>
+          <input
+            aria-label="Your email"
+            data-testid="data-input"
+            id="email"
+            name="email"
+            placeholder="Your email"
+            type="email"
+            value=""
+          />
+          <button>
+            Register
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments components tests should match snapshot 1`] = `
+<div>
+  <section
+    class="comments__Comments-sc-1lcdrb2-0 fCdsdL"
+  >
+    <button
+      data-testid="button-toggle"
+    >
+      Show
+       Comments
+    </button>
+    <ul
+      class="comment-list__CommentList-sc-18i8ejw-0 fEXOaQ"
+    />
+  </section>
+</div>
+`;

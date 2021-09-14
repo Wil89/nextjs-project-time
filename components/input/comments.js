@@ -74,14 +74,14 @@ function BasicComments(props) {
 
   return (
     <section className={props.className}>
-      <button onClick={toggleCommentsHandler}>
+      <button onClick={toggleCommentsHandler} data-testid='button-toggle'>
         {showComments ? "Hide" : "Show"} Comments
       </button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
       {showComments && loading ? (
         "Loading ..."
       ) : (
-        <CommentList items={comments} />
+        <CommentList items={comments} data-testid='comment-list' />
       )}
     </section>
   );

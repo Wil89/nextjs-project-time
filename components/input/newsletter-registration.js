@@ -1,11 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 
 function BasicNewsletterRegistration({ handlerRegistration, className }) {
-  const emailRef = useRef();
+  //const emailRef = useRef();
+  const [email, setEmail] = useState('');
+
   function registrationHandler(event) {
     event.preventDefault();
-    const email = emailRef.current.value;
+    //console.log(event);
+    //const email = emailRef.current.value;
     // email validation regex
     const re =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -13,7 +16,7 @@ function BasicNewsletterRegistration({ handlerRegistration, className }) {
     if (!email || !re.test(email)) {
       return;
     }
-    emailRef.current.value = "";
+    //emailRef.current.value = "";
     handlerRegistration(email);
   }
 
@@ -28,7 +31,10 @@ function BasicNewsletterRegistration({ handlerRegistration, className }) {
               id="email"
               placeholder="Your email"
               aria-label="Your email"
-              ref={emailRef}
+              data-testid="data-input"
+              value={email}
+              name="email"
+              onChange={(event)=> setEmail(event.target.value)}
             />
             <button>Register</button>
           </div>
